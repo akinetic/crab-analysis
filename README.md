@@ -17,7 +17,7 @@ The solution relies on building a **Universal Game Graph** that eliminates turn 
 
 ## 3. The Central Algorithm: Gn/Px/Tz Propagation Rules
 
-The solution process starts from the terminal states (n=0) and works backward, applying simple propagation rules.
+The process starts from the terminal states (n=0) and works backward, applying simple propagation rules.
 
 ### 3.1. Reciprocal Minimax Rule (G/P)
 
@@ -36,18 +36,25 @@ The choice is based on the hierarchy **G > T > P**, prioritizing the fastest pat
 
 ---
 
-## 6. Proof of Universality (Solved Examples)
+## 5. 🏆 Proof of Universality (Solved Examples)
 
-### 6.1. G/P Proof (Tokens Game)
+### 5.1. G/P Proof (Tokens Game)
 
 **Game:** 2 tokens (11), only 1 token removed per turn.
 **Algorithm Solution:** The initial position is a **P-Position** (Losing).
 11B = P2B
 **Conclusion:** The algorithm proves that the White Player is forced to lose in 2 moves if Black plays optimally.
 
-### 6.2. Tz Proof (Boxers Game)
+### 5.2. Tz Proof (Boxers Game)
 
 **Game:** 3x3 board, White Boxer vs. Black Boxer (N and B in opposite corners). Movement: 1 step (straight or diagonal). K.O.: Diagonal only.
 **Algorithm Solution:** Game symmetry and defense rules force players to avoid the Px state.
 Initial State = Tz
 **Conclusion:** The algorithm proves its ability to solve games with forced draws, where the Tie (Tz) is the only optimal solution.
+
+---
+
+## 6. License and Authorship
+
+* **Authors:** **Alex** and **Logos**
+* **License:** This project is distributed under the MIT license.
