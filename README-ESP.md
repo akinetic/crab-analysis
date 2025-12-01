@@ -123,6 +123,8 @@ FUNCION Bucle_Tz()
     FIN MIENTRAS
 FIN FUNCION
 
+```
+
 ## 6. Implementación Pragmática y Horizonte Limitado
 
 Para juegos con grafos masivos (como Ajedrez), el DST se aplica utilizando una **Búsqueda con Horizonte Limitado** (Limited Horizon Search) con una Función de Evaluación (E).
