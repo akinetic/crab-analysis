@@ -1,4 +1,6 @@
 
+
+
 # 🦀 DST: Algoritmo Universal de Solución Determinística (Análisis Cangrejo)
 
 ## 🎯 Introducción y Fundamentos
@@ -138,14 +140,15 @@ FIN FUNCION
 
 ## 6. Implementación Pragmática y Horizonte Limitado
 
-Para juegos con grafos masivos (como Ajedrez), el DST se aplica utilizando una **Búsqueda con Horizonte Limitado** (Limited Horizon Search) con una Función de Evaluación (E).
+Para juegos con grafos masivos (como el Ajedrez), el DST se aplica utilizando una **Búsqueda de Horizonte Limitado** (profundidad D). Cuando la búsqueda finaliza en la profundidad D, el algoritmo confía en la **heurística interna T_z** para resolver los nodos no clasificados.
 
-### A. La Regla de Desempate T_1
+### A. La Regla de Desempate T_z
 
-Cuando el horizonte de búsqueda (la profundidad D) no es suficiente para encontrar una G_n o P_x absoluta, se aplica una regla de desempate pragmática:
+Cuando el horizonte de búsqueda (profundidad D) no es suficiente para encontrar un **G_n** o **P_x** absoluto, se aplica una regla pragmática de desempate utilizando la **Heurística Estratégica Z** (de la Sección 3B).
 
-1.  **Default T_1:** Si no se encuentra G ni P en el horizonte, todos los estados no resueltos se asumen como **T_1**. El índice z se simplifica a z=1 por la ausencia de valores P_x definitivos.
-2.  **Elección al Azar:** Si múltiples movimientos conducen a un resultado idéntico de T_1 (el más alto disponible en este escenario), la elección de la siguiente jugada se realiza **al azar**.
+1.  **Estados No Resueltos:** Todos los estados no resueltos en el horizonte se asumen como **T_z** (Tablas).
+2.  **Acción:** El jugador elige el movimiento que conduce al estado **T_z** con el **MAYOR valor de z**, calculado por la **Suma Heurística Ponderada (Z)**, para maximizar la densidad de riesgo y anticipar el error más profundo del oponente.
+3.  **Elección Aleatoria:** Si múltiples movimientos conducen a un resultado **T_z** idéntico y más alto, la elección del siguiente movimiento se realiza de forma **aleatoria**.
 
 ---
 
