@@ -57,6 +57,7 @@ El índice z proporciona un valor informativo sobre la duración máxima de la t
 | :--- | :--- | :--- | :--- |
 | **Riesgo/Trampa** | Al menos una P_x | **z = P_maxima** | Indica la ruta que contiene el riesgo de pérdida **MÁS PROFUNDO**. La ruta más larga es la que el oponente fallará en calcular (Profundidad del Error). |
 | **Ciclo Puro** | SOLO T | **z = T_minima** | Representa el camino más corto para establecer las tablas. |
+
 ### B. Estrategia Avanzada: Suma Heurística Ponderada (Z)
 
 Como alternativa estratégica para modelar el potencial total de error del oponente (Densidad de Riesgo), el índice T_z puede ser reemplazado por un puntaje Heurístico **Z**.
@@ -67,7 +68,8 @@ $$Z = (N_T \cdot A) + (N_P \cdot B) + \sum_{i=1}^{N_P} (x_i \cdot C)$$
 
 **Racionalidad Estratégica:** Esta es la jerarquía para favorecer la **profundidad de las trampas** sobre la cantidad de opciones. El objetivo es que la cantidad de P sea más importante que la cantidad de T (B > A):
 
-**Prioridad de Pesos:** $\mathbf{C} > \mathbf{B} > \mathbf{A}$
+**Prioridad de Pesos:** **C** > **B** > **A**
+
 ---
 
 ## 4. La Jerarquía de Prioridades (Movimiento Óptimo)
