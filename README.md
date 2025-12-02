@@ -1,6 +1,8 @@
 
 
 
+
+
 # 🦀 DST: Universal Deterministic Solution Algorithm (Crab Analysis)
 
 ## 🎯 Introduction and Fundamentals
@@ -136,14 +138,15 @@ END FUNCTION
 
 ## 6. Pragmatic Implementation and Limited Horizon
 
-For games with massive graphs (like Chess), the DST is applied using a **Limited Horizon Search** with an Evaluation Function (E).
+For games with massive graphs (like Chess), the DST is applied using a **Limited Horizon Search** (depth D). When the search ends at depth D, the algorithm relies on the **internal T_z heuristic** to resolve the unclassified nodes.
 
-### A. The T_1 Tie-breaking Rule
+### A. The T_z Tie-breaking Rule
 
-When the search horizon (depth D) is not sufficient to find an absolute G_n or P_x, a pragmatic tie-breaking rule is applied:
+When the search horizon (depth D) is not sufficient to find an absolute **G_n** or **P_x**, a pragmatic tie-breaking rule is applied using the **Strategic Heuristic Z** (from Section 3B).
 
-1.  **T_1 Default:** If neither G nor P is found in the horizon, all unresolved states are assumed to be **T_1**. The z index is simplified to z=1 due to the absence of definitive P_x values.
-2.  **Random Choice:** If multiple moves lead to an identical T_1 outcome (the highest available in this scenario), the choice of the next move is made **randomly**.
+1.  **Unresolved States:** All unresolved states at the horizon are assumed to be **T_z** (Draws).
+2.  **Action:** The player chooses the move that leads to the **T_z** state with the **HIGHEST z value**, calculated by the **Weighted Heuristic Sum (Z)**, to maximize the risk density and anticipate the deepest error from the opponent.
+3.  **Random Choice:** If multiple moves lead to an identical highest **T_z** outcome, the choice of the next move is made **randomly**.
 
 ---
 
