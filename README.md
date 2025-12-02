@@ -92,41 +92,48 @@ The player's decision when moving is based on a strict priority hierarchy that d
 
 This is the central algorithm that implements the theory above. 
 
+## 5. Universal DST Pseudocode
+
+This is the central algorithm that implements the theory above.
+
 ```pseudocode
 // ----------------------------------------------------------------------
 // GLOBAL STRUCTURES
 // ----------------------------------------------------------------------
-BASE_DE_TABLAS = Dictionary<Key_Island, Solution> // Stores (1N : G3, 2B : P4, etc.)
-CONTEO_FOTOS = 0 // Progressive counter for unique 'Photo' ID
+SOLUTION_TABLE = Dictionary<Key_Island, Solution> // Stores (1N : G3, 2B : P4, etc.)
+PHOTO_COUNTER = 0 // Progressive counter for unique 'Photo' ID
 // ----------------------------------------------------------------------
 // DST FUNCTIONS
 // ----------------------------------------------------------------------
 FUNCTION Solve_DST(Initial_State)
-    // 1. Graph Construction and ID Assignment
-    Expand_Graph(Initial_State)
-    // 2. Win/Loss Solution (G_n and P_x)
-    Loop_Gn_Px()
-    // 3. Draw Solution (T_z)
-    Loop_Tz()
-    RETURN BASE_DE_TABLAS[Initial_State]
+// 1. Graph Construction and ID Assignment
+Expand_Graph(Initial_State)
+// 2. Win/Loss Solution (G_n and P_x)
+Loop_Gn_Px()
+// 3. Draw Solution (T_z)
+Loop_Tz()
+RETURN SOLUTION_TABLE[Initial_State]
 END FUNCTION
+
 // Builds the Island structure and its Bridges (uses the game-specific function Generate_Outgoing_Bridges)
 FUNCTION Expand_Graph(Current_Serialization)
-    // ... Logic to assign the progressive ID and Unique Key ...
-    // ... Recursive logic to explore all Bridges and build the INVERSE_GRAPH ...
+// ... Logic to assign the progressive ID and Unique Key ...
+// ... Recursive logic to explore all Bridges and build the INVERSE_GRAPH ...
 END FUNCTION
+
 // Applies the G_n/P_x rules (P_max + 1, G_min + 1) iteratively and applies Global Accommodation.
 FUNCTION Loop_Gn_Px()
-    WHILE Changes_In_SOLUTION_TABLE
-        // ... Logic for G_n and P_x Propagation ...
-        // ... If assigned, apply Accommodation (update predecessors) ...
-    END WHILE
+WHILE Changes_In_SOLUTION_TABLE
+// ... Logic for G_n and P_x Propagation ...
+// ... If assigned, apply Accommodation (update predecessors) ...
+END WHILE
 END FUNCTION
+
 // Solves T_z using the Exclusion Rule and the z index (P_minima or T_minima).
 FUNCTION Loop_Tz()
-    WHILE Changes_In_Tz_Assigned
-        // ... Logic for T_z Propagation and z index assignment ...
-    END WHILE
+WHILE Changes_In_Tz_Assigned
+// ... Logic for T_z Propagation and z index assignment ...
+END WHILE
 END FUNCTION
 
 ```
